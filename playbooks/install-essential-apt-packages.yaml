@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Update apt cache and make sure eza, fish and neofetch are installed
+      apt:
+        name: "{{ item }}"
+        update_cache: yes
+      loop:
+        - eza
+        - fish
+        - neofetch
