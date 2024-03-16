@@ -6,7 +6,7 @@
     - name: Update apt cache and make sure gpg, fish and neofetch are installed
       ansible.builtin.apt:
         name: "{{ item }}"
-        update_cache: yes
+        update_cache: true
       loop:
         - fish
         - neofetch
