@@ -2,22 +2,11 @@
 - hosts: all
   become: yes
   tasks:
-    - name: install gpg
+    - name: Update apt cache and make sure gpg, fish and neofetch are installed
       apt:
         name: "{{ item }}"
         update_cache: yes
       loop:
-        - gpg
-    - name: Add an Apt signing key, will not download if present
-      ansible.builtin.apt_key:
-        id: 9FED2BCBDCD29CDF762678CBAED4B06F473041FA
-        url: https://raw.githubusercontent.com/eza-community/eza/main/deb.asc
-        state: present
-    - name: Update apt cache and make sure eza, fish and neofetch are installed
-      apt:
-        name: "{{ item }}"
-        update_cache: yes
-      loop:
-        - eza
         - fish
         - neofetch
+        - gpg
