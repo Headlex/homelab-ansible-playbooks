@@ -1,5 +1,5 @@
 ---
-- name: play for updating cache and installing essential packages
+- name: Play for updating cache and installing essential packages
   hosts: all
   become: true
   tasks:

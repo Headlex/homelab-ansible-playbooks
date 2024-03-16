@@ -1,15 +1,15 @@
 ---
-- name: add homelab users to server os
+- name: Add homelab users to server os
   hosts: all
   become: true
   tasks:
-    - name: add homelab users ansible, ghactions
+    - name: Add homelab users ansible, ghactions
       ansible.builtin.user:
         name: "{{ item }}"
       loop:
         - ansible
         - ghactions
-    - name: add homelab users with sudo group alexander
+    - name: Add homelab users with sudo group alexander
       ansible.builtin.user:
         name: "{{ item }}"
         groups: sudo
