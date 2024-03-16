@@ -1,5 +1,5 @@
 ---
-- name: add homelab users to server os
+- name: Add homelab users to server os
   hosts: all
   become: true
   tasks:
