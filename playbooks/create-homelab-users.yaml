@@ -6,6 +6,7 @@
     - name: Add homelab users ansible, ghactions
       ansible.builtin.user:
         name: "{{ item }}"
+        create_home: false
       loop:
         - ansible
         - ghactions
