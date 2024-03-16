@@ -6,9 +6,9 @@
   tasks:
     - name: Using dict2items
       ansible.builtin.debug:
-        msg: "item.key = {{ item.key }}"
-      ansible.builtin.debug:
-        msg: "item.value = {{ item.value }}"
+        msg: 
+          - "item.key = {{ item.key }}"
+          - "item.value = {{ item.value }}"
       loop: "{{ homelab_users_with_ssh_cert | dict2items }}"
 
     - name: Install public keys
