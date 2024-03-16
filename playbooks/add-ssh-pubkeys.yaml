@@ -1,0 +1,17 @@
+---
+- name: Add ssh keys to homelab users
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Using dict2items
+      ansible.builtin.debug:
+        msg: "{{ item.key }} - {{ item.value }}"
+      loop: "{{ homelab_users_with_ssh_cert | dict2items }}"
+
+    - name: Install public keys
+      ansible.posix.authorized_key:
+        user: "{{ item.key }}"
+        state: present
+        key: "{{ item.value }}"
+      loop: "{{ homelab_users_with_ssh_cert | dict2items }}"
