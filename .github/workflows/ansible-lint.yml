@@ -1,7 +1,7 @@
 # .github/workflows/ansible-lint.yml
 name: "ansible lint"
 
-run-name: ansible lint |  ${{ github.ref }} 
+run-name: ansible lint |  ${{ github.ref }}
 
 on:
   push:
