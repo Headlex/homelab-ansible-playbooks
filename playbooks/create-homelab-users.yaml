@@ -1,0 +1,16 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: add homelab users ansible, ghactions      
+      ansible.builtin.user:
+        name: "{{ item }}"
+      loop:
+        - ansible
+        - ghactions
+        - alexander
+    - name: add homelab users with sudo group ansible, ghactions      
+      ansible.builtin.user:
+        name: "{{ item }}"
+      loop:
+        - alexander

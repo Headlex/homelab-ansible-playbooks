@@ -1,7 +1,7 @@
 ---
 - name: play for updating cache and installing essential packages
   hosts: all
-  become: yes
+  become: true
   tasks:
     - name: Update apt cache and make sure gpg, fish and neofetch are installed
       apt:
